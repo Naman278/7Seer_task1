@@ -24,7 +24,7 @@
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Naman278/7Sseer.git
-   cd 7Sseer/task1
+   cd 7Sseer
    ```
 
 2. **Install dependencies**
