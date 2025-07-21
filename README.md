@@ -1,5 +1,7 @@
 # Task 1
 
+![App Demo](media/demo.gif)
+
 ## Framework Version Used
 
 - **Flutter SDK**: >=3.2.3
