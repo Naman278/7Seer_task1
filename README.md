@@ -23,8 +23,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Naman278/7Sseer.git
-   cd 7Sseer
+   git clone https://github.com/Naman278/7Seer_task1.git
+   cd 7Seer_task1
    ```
 
 2. **Install dependencies**
