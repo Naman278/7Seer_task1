@@ -101,24 +101,12 @@ lib/
 └── main.dart               # App entry point
 ```
 
-## Features
-
-- **Dark Theme**: Modern dark UI with lime green accents
-- **Responsive Design**: Optimized for standard mobile screen sizes
-- **Smooth Animations**: Subtle scale and fade animations on interactions
-- **Interactive Elements**: Favorite toggles, category selection, booking buttons
-- **Featured Events Carousel**: Horizontal scrolling banner with page indicators
-- **Artist Profiles**: Circular artist cards with images
-- **Trending Section**: Image carousel with green borders
-
 ---
 
 ## Animations Used
 
-- **Card and Button Press Animations**: Cards (event, artist, category) and custom buttons use scale animations for a smooth press effect, making interactions feel more dynamic.
 - **Fade and Scale Transitions**: Event cards and banners use fade and scale transitions when appearing, providing a polished look.
 - **Carousel/Slider Animations**: The featured events and trending sections use animated carousels with smooth page transitions and indicator animations.
 - **Icon and Navigation Effects**: The bottom navigation bar uses highlight and shadow animations to indicate the active tab.
 
-These animations enhance the user experience by making the app feel more interactive and visually appealing.
 
