@@ -62,25 +62,17 @@ You can download and install this APK directly on Android devices.
 3. **Asset Management**: Organizing and optimizing various image assets (banners, icons) for different orientations
 
 ### Improvements Made
-1. **Modular Architecture**: Separated concerns with clear folder structure and reusable components
-2. **Performance Optimization**: Optimized local asset loading for better performance
-3. **Accessibility**: Implemented proper contrast ratios and readable typography
-4. **Code Organization**: Clean separation of models, widgets, and utilities
+1. **Modular Architecture & Code Organization**: The app is structured into clear folders for widgets, models, utilities, and constants. Each part of the app is separated into its own module, making the code easy to find, reuse, and update. This organization helps keep the project maintainable and scalable.
+2. **Performance Optimization**: All images and icons are stored locally in the app, so they load instantly without needing the internet. The app only loads images when they are needed on the screen, which saves memory and makes the app run faster. This helps the app work smoothly even on devices with less RAM.
+3. **Responsive Design**: The app’s layout and font sizes automatically adjust to different screen sizes. The UI is optimized for a wide range of mobile devices, and the app is locked to portrait orientation only for a consistent user experience.
 
-### Known Limitations/Bugs
-1. **Mock Data**: Currently uses static mock data - needs API integration for production
-2. **Limited Functionality**: Booking flow is simulated with snackbar notifications
-3. **No State Management**: Uses simple state management - could benefit from Provider/Bloc for larger scale
-4. **Limited Error Handling**: Basic error handling for user interactions
+### Known Limitations
+1. **Limited Functionality**:  Different buttons, like "See all", "Book Now", are just simulated with pop-up messages. More screeens need to be added for a better layout and workflow.
+2. **No State Management**: The app uses basic state updates, which is fine for small apps but not for bigger ones. For larger projects, using tools like Provider or Bloc would make managing data and updates easier and more reliable.
+3. **Limited Error Handling**: The app only shows simple error messages for user actions. It doesn’t handle all possible problems, like missing data or unexpected errors. Better error handling would make the app more stable and user-friendly.
+1. **No Advanced Asset Optimization**: The app does not use advanced techniques like image caching, lazy loading for very large lists, or asset compression beyond what’s already in the repo. For very large datasets or more demanding use cases, these optimizations would be needed to ensure smooth performance.
 
-### Future Enhancements
-- Event detail screens with full booking flow
-- User authentication and profile management
-- Real API integration with backend services
-- Push notifications for event updates
-- Advanced filtering and search functionality
-- Payment gateway integration
-- Social sharing features
+
 
 ## Project Structure
 
@@ -120,4 +112,13 @@ lib/
 - **Trending Section**: Image carousel with green borders
 
 ---
+
+## Animations Used
+
+- **Card and Button Press Animations**: Cards (event, artist, category) and custom buttons use scale animations for a smooth press effect, making interactions feel more dynamic.
+- **Fade and Scale Transitions**: Event cards and banners use fade and scale transitions when appearing, providing a polished look.
+- **Carousel/Slider Animations**: The featured events and trending sections use animated carousels with smooth page transitions and indicator animations.
+- **Icon and Navigation Effects**: The bottom navigation bar uses highlight and shadow animations to indicate the active tab.
+
+These animations enhance the user experience by making the app feel more interactive and visually appealing.
 
