@@ -68,16 +68,19 @@ class _ArtistCardState extends State<ArtistCard>
           return Transform.scale(
             scale: _scaleAnimation.value,
             child: Container(
-              width: 85,
-              margin: const EdgeInsets.only(right: 8),
+              width:
+                  MediaQuery.of(context).size.width * 0.22, // Responsive width
+              margin: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.02),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // Artist Image Circle
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: MediaQuery.of(context).size.width *
+                        0.20, // Responsive size
+                    height: MediaQuery.of(context).size.width * 0.20,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
@@ -90,14 +93,15 @@ class _ArtistCardState extends State<ArtistCard>
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.02),
 
                   // Artist Name
                   Text(
                     widget.artist.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColors.textPrimary,
-                      fontSize: 12,
+                      fontSize: MediaQuery.of(context).size.width *
+                          0.035, // Responsive font size
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Poppins',
                     ),

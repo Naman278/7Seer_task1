@@ -39,7 +39,8 @@ class _FeaturedEventBannerState extends State<FeaturedEventBanner> {
       children: [
         // Banner Carousel
         SizedBox(
-          height: 200,
+          height:
+              MediaQuery.of(context).size.height * 0.25, // Responsive height
           child: PageView.builder(
             controller: _pageController,
             onPageChanged: _onPageChanged,
@@ -47,9 +48,11 @@ class _FeaturedEventBannerState extends State<FeaturedEventBanner> {
             itemBuilder: (context, index) {
               final event = widget.events[index];
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.04),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(
+                      MediaQuery.of(context).size.width * 0.04),
                   image: DecorationImage(
                     image: AssetImage(event.imageUrl),
                     fit: BoxFit.fill,
@@ -69,21 +72,23 @@ class _FeaturedEventBannerState extends State<FeaturedEventBanner> {
             children: [
               Text(
                 widget.events[_currentPage].title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.textPrimary,
-                  fontSize: 18,
+                  fontSize: MediaQuery.of(context).size.width *
+                      0.045, // Responsive font size
                   fontWeight: FontWeight.w600,
                 ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.01),
               Text(
                 widget.events[_currentPage].title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.textSecondary,
-                  fontSize: 14,
+                  fontSize: MediaQuery.of(context).size.width *
+                      0.035, // Responsive font size
                   fontWeight: FontWeight.w400,
                 ),
                 maxLines: 1,

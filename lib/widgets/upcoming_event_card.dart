@@ -17,19 +17,40 @@ class UpcomingEventCard extends StatelessWidget {
     this.onBookNow,
   });
 
+  String _monthName(int month) {
+    const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ];
+    return months[month - 1];
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
-        height: 300,
-        margin: const EdgeInsets.only(right: 16),
+        height: MediaQuery.of(context).size.height * 0.38, // Responsive height
+        margin:
+            EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.04),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius:
+              BorderRadius.circular(MediaQuery.of(context).size.width * 0.04),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius:
+              BorderRadius.circular(MediaQuery.of(context).size.width * 0.04),
           child: Stack(
             children: [
               // Banner as background
@@ -65,7 +86,8 @@ class UpcomingEventCard extends StatelessWidget {
                       children: [
                         // Date indicator
                         Container(
-                          width: 100,
+                          width: MediaQuery.of(context).size.width *
+                              0.25, // Responsive width
                           decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(10),
@@ -89,14 +111,19 @@ class UpcomingEventCard extends StatelessWidget {
                                     topRight: Radius.circular(10),
                                   ),
                                 ),
-                                child: const Center(
+                                child: Center(
                                   child: Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 5),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical:
+                                            MediaQuery.of(context).size.width *
+                                                0.01),
                                     child: Text(
                                       'Wed',
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 16,
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.045, // Responsive font size
                                         fontWeight: FontWeight.w700,
                                         fontFamily: 'Poppins',
                                       ),
@@ -120,17 +147,17 @@ class UpcomingEventCard extends StatelessWidget {
                                     bottomRight: Radius.circular(10),
                                   ),
                                 ),
-                                child: const Text(
-                                  '30 April 2025',
+                                child: Text(
+                                  '${event.date.day} ${_monthName(event.date.month)} ${event.date.year}',
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w500,
+                                    fontSize: MediaQuery.of(context)
+                                            .size
+                                            .width *
+                                        0.032, // Smaller responsive font size
+                                    fontWeight: FontWeight.w600,
                                     fontFamily: 'Poppins',
                                   ),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
@@ -171,13 +198,14 @@ class UpcomingEventCard extends StatelessWidget {
                         // Event title
                         Text(
                           event.title,
-                          style: const TextStyle(
-                            color: AppColors.textPrimary,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: MediaQuery.of(context).size.width *
+                                0.05, // Responsive font size
+                            fontWeight: FontWeight.w700,
                             fontFamily: 'Poppins',
                           ),
-                          maxLines: 1,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(height: 4),
@@ -185,9 +213,10 @@ class UpcomingEventCard extends StatelessWidget {
                         // Location
                         Text(
                           event.location,
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.textSecondary,
-                            fontSize: 12,
+                            fontSize: MediaQuery.of(context).size.width *
+                                0.035, // Responsive font size
                             fontWeight: FontWeight.w400,
                             fontFamily: 'Poppins',
                           ),
@@ -219,9 +248,10 @@ class UpcomingEventCard extends StatelessWidget {
                         // "Starts from" text
                         Text(
                           'Starts from',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.textSecondary,
-                            fontSize: 10,
+                            fontSize: MediaQuery.of(context).size.width *
+                                0.03, // Responsive font size
                             fontWeight: FontWeight.w400,
                             fontFamily: 'Poppins',
                           ),
@@ -235,9 +265,10 @@ class UpcomingEventCard extends StatelessWidget {
                             // Price
                             Text(
                               '₹${event.price}',
-                              style: const TextStyle(
-                                color: AppColors.textPrimary,
-                                fontSize: 16,
+                              style: TextStyle(
+                                color: AppColors.primaryGreen,
+                                fontSize: MediaQuery.of(context).size.width *
+                                    0.04, // Responsive font size
                                 fontWeight: FontWeight.w600,
                                 fontFamily: 'Poppins',
                               ),

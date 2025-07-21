@@ -55,13 +55,11 @@ A pre-built APK is available in the repository: `task1-app.apk`
 
 You can download and install this APK directly on Android devices.
 
-## Notes on Challenges, Improvements, or Known Bugs
 
 ### Challenges Faced
 1. **Responsive Design**: Implementing a responsive layout that works well across different screen sizes while maintaining the dark theme aesthetics
-2. **Custom Fonts**: Integrating custom Poppins fonts and ensuring proper font weights across the app
-3. **Smooth Animations**: Balancing performance with smooth animations and transitions
-4. **Asset Management**: Organizing and optimizing various image assets (banners, icons) for different orientations
+2. **Smooth Animations**: Balancing performance with smooth animations and transitions
+3. **Asset Management**: Organizing and optimizing various image assets (banners, icons) for different orientations
 
 ### Improvements Made
 1. **Modular Architecture**: Separated concerns with clear folder structure and reusable components

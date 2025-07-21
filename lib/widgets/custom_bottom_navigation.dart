@@ -20,12 +20,13 @@ class CustomBottomNavigation extends StatelessWidget {
       right: 0,
       child: Center(
         child: Container(
-          height: 80,
-          width:
-              MediaQuery.of(context).size.width * 0.85, // 85% of screen width
+          height:
+              MediaQuery.of(context).size.height * 0.10, // Responsive height
+          width: MediaQuery.of(context).size.width * 0.85, // Already responsive
           decoration: BoxDecoration(
             color: AppColors.background,
-            borderRadius: BorderRadius.circular(40), // Pill-like shape
+            borderRadius: BorderRadius.circular(
+                MediaQuery.of(context).size.width * 0.10), // Responsive radius
             boxShadow: [
               // Main shadow for 3D floating effect
               BoxShadow(
@@ -54,24 +55,28 @@ class CustomBottomNavigation extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildNavItem(
+                context: context,
                 index: 0,
                 iconPath: 'assets/icons/home-smile.svg',
                 label: 'Home',
                 isActive: currentIndex == 0,
               ),
               _buildNavItem(
+                context: context,
                 index: 1,
                 iconPath: 'assets/icons/ticket.svg',
                 label: 'Tickets',
                 isActive: currentIndex == 1,
               ),
               _buildNavItem(
+                context: context,
                 index: 2,
                 iconPath: 'assets/icons/stand.svg',
                 label: 'Events',
                 isActive: currentIndex == 2,
               ),
               _buildNavItem(
+                context: context,
                 index: 3,
                 iconPath: 'assets/icons/hearts.svg',
                 label: 'Favorites',
@@ -85,6 +90,7 @@ class CustomBottomNavigation extends StatelessWidget {
   }
 
   Widget _buildNavItem({
+    required BuildContext context,
     required int index,
     required String iconPath,
     required String label,
@@ -93,8 +99,8 @@ class CustomBottomNavigation extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(index),
       child: Container(
-        width: 60,
-        height: 60,
+        width: MediaQuery.of(context).size.width * 0.15, // Responsive width
+        height: MediaQuery.of(context).size.width * 0.15, // Responsive height
         decoration: BoxDecoration(
           color: isActive ? AppColors.primaryGreen : Colors.transparent,
           shape: BoxShape.circle,
@@ -115,45 +121,49 @@ class CustomBottomNavigation extends StatelessWidget {
                 ]
               : null,
         ),
-        child: Center(
-          child: index == 0
-              ? Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    // Home icon
-                    SvgPicture.asset(
-                      'assets/icons/home-smile.svg',
-                      width: 24,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        isActive ? Colors.black : AppColors.textSecondary,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    // Ellipse/smile on top
-                    Positioned(
-                      top: 13,
-                      child: SvgPicture.asset(
-                        'assets/icons/ellipse.svg',
-                        width: 16,
-                        height: 6,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            index == 0
+                ? Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // Home icon
+                      SvgPicture.asset(
+                        'assets/icons/home-smile.svg',
+                        width: 24,
+                        height: 24,
                         colorFilter: ColorFilter.mode(
-                          isActive ? AppColors.primaryGreen : Colors.black,
+                          isActive ? Colors.black : AppColors.textSecondary,
                           BlendMode.srcIn,
                         ),
                       ),
+                      // Ellipse/smile on top
+                      Positioned(
+                        top: 13,
+                        child: SvgPicture.asset(
+                          'assets/icons/ellipse.svg',
+                          width: 16,
+                          height: 6,
+                          colorFilter: ColorFilter.mode(
+                            isActive ? AppColors.primaryGreen : Colors.black,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : SvgPicture.asset(
+                    iconPath,
+                    width: 24,
+                    height: 24,
+                    colorFilter: ColorFilter.mode(
+                      isActive ? Colors.black : AppColors.textSecondary,
+                      BlendMode.srcIn,
                     ),
-                  ],
-                )
-              : SvgPicture.asset(
-                  iconPath,
-                  width: 24,
-                  height: 24,
-                  colorFilter: ColorFilter.mode(
-                    isActive ? Colors.black : AppColors.textSecondary,
-                    BlendMode.srcIn,
                   ),
-                ),
+            // Removed label Text widget
+          ],
         ),
       ),
     );

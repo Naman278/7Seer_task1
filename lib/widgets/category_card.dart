@@ -78,15 +78,16 @@ class _CategoryCardState extends State<CategoryCard>
           return Transform.scale(
             scale: _scaleAnimation.value,
             child: Container(
-              width: MediaQuery.of(context).size.width *
-                  0.20, // Reduced by 20% from 0.25
-              height: MediaQuery.of(context).size.width *
-                  0.095, // Further reduced height
+              width:
+                  MediaQuery.of(context).size.width * 0.22, // Responsive width
+              height:
+                  MediaQuery.of(context).size.width * 0.18, // Responsive height
               margin: EdgeInsets.only(
                   right: MediaQuery.of(context).size.width * 0.04),
               decoration: BoxDecoration(
                 color: Colors.transparent,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(
+                    MediaQuery.of(context).size.width * 0.04),
                 border: Border.all(
                   color: AppColors.primaryGreen,
                   width: 2,
@@ -99,13 +100,13 @@ class _CategoryCardState extends State<CategoryCard>
                   Image.asset(
                     widget.category.icon,
                     width: MediaQuery.of(context).size.width *
-                        0.064, // Reduced by 20% from 0.08
-                    height: MediaQuery.of(context).size.width * 0.064,
+                        0.10, // Responsive icon size
+                    height: MediaQuery.of(context).size.width * 0.10,
                     color: AppColors.textPrimary,
                   ),
                   SizedBox(
                       height: MediaQuery.of(context).size.width *
-                          0.008), // Reduced spacing
+                          0.02), // Responsive spacing
 
                   // Category Name
                   Text(
@@ -113,7 +114,7 @@ class _CategoryCardState extends State<CategoryCard>
                     style: TextStyle(
                       color: AppColors.textPrimary,
                       fontSize: MediaQuery.of(context).size.width *
-                          0.028, // Reduced by 20% from 0.035
+                          0.035, // Responsive font size
                       fontWeight: FontWeight.w600,
                       fontFamily: 'Poppins',
                     ),
